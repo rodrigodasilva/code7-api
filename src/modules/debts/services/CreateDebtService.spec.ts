@@ -15,7 +15,7 @@ describe('CreateDebt', () => {
   it('should be able to create a new debt', async () => {
     const debt = await createDebt.execute({
       value: 100.4,
-      reason: 'Emprestimo pessoal 123',
+      reason: 'Emprestimo pessoal',
       date: new Date(2020, 4, 10),
       client: {
         id: 1,

@@ -28,5 +28,23 @@ debtsRouter.post(
   }),
   debtsController.store,
 );
+debtsRouter.put(
+  '/',
+  celebrate({
+    [Segments.BODY]: {
+      id: Joi.string().required(),
+      value: Joi.number().required(),
+      reason: Joi.string().required(),
+      date: Joi.string().required(),
+      client: Joi.object().keys({
+        id: Joi.number().required(),
+        name: Joi.string().required(),
+        email: Joi.string().email().required(),
+        phone: Joi.string().required(),
+      }),
+    },
+  }),
+  debtsController.update,
+);
 
 export default debtsRouter;

@@ -18,7 +18,7 @@ interface IRequest {
 }
 
 @injectable()
-class CreateDebtService {
+class UpdateDebtService {
   constructor(
     @inject('DebtsRepository')
     private debtsRepository: IDebtsRepository,
@@ -35,6 +35,7 @@ class CreateDebtService {
       reason,
       value,
       date,
+      client_id: client.id,
       client,
     });
 
@@ -42,4 +43,4 @@ class CreateDebtService {
   }
 }
 
-export default CreateDebtService;
+export default UpdateDebtService;

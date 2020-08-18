@@ -18,6 +18,7 @@ describe('UpdateDebt', () => {
       value: 100.4,
       reason: 'Emprestimo pessoal',
       date: new Date(2020, 4, 10),
+      client_id: 1,
       client: {
         id: 1,
         name: 'Leanne Graham',

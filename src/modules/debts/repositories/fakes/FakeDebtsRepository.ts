@@ -3,9 +3,14 @@ import { uuid } from 'uuidv4';
 import IDebtsRepository from '@modules/debts/repositories/IDebtsRepository';
 import ICreateDebtDTO from '@modules/debts/dtos/ICreateDebtDTO';
 import Debt from '@modules/debts/infra/typeorm/schemas/Debt';
+import IResponseSearchDebtsDTO from '@modules/debts/dtos/IResponseSearchDebtsDTO';
 
 class DebtsRepository implements IDebtsRepository {
   private debts: Debt[] = [];
+
+  public async search(): Promise<IResponseSearchDebtsDTO> {
+    return { debts: this.debts, totalCount: this.debts.length };
+  }
 
   public async findById(id: string): Promise<Debt | undefined> {
     const findDebt = this.debts.find(debt => String(debt.id) === id);

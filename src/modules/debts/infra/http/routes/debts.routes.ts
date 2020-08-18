@@ -10,7 +10,8 @@ const debtsController = new DebtsController();
 
 debtsRouter.use(ensureAuthenticated);
 
-// debtsRouter.get('/', debtsController.show);
+debtsRouter.get('/', debtsController.index);
+
 debtsRouter.post(
   '/',
   celebrate({
@@ -28,6 +29,7 @@ debtsRouter.post(
   }),
   debtsController.store,
 );
+
 debtsRouter.put(
   '/',
   celebrate({

@@ -22,6 +22,9 @@ class Debt {
   date: Date;
 
   @Column()
+  client_id: number;
+
+  @Column()
   client: {
     id: number;
     name: string;

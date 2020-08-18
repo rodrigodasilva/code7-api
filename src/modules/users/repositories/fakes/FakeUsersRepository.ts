@@ -1,7 +1,7 @@
 import { uuid } from 'uuidv4';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 
-import ICraeteUserDTO from '@modules/users/dtos/ICreateUserDTO';
+import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO';
 
 import User from '@modules/users/infra/typeorm/schemas/User';
 
@@ -24,7 +24,7 @@ class FakeUsersRepository implements IUsersRepository {
     name,
     email,
     password,
-  }: ICraeteUserDTO): Promise<User> {
+  }: ICreateUserDTO): Promise<User> {
     const user = new User();
 
     Object.assign(user, { id: uuid(), name, email, password });

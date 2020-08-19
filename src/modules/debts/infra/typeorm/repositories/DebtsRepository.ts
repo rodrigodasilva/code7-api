@@ -64,9 +64,9 @@ class DebtsRepository implements IDebtsRepository {
   }
 
   public async findById(id: string): Promise<Debt | undefined> {
-    const user = await this.ormRepository.findOne(id);
+    const debt = await this.ormRepository.findOne(id);
 
-    return user;
+    return debt;
   }
 
   public async create({
@@ -93,6 +93,10 @@ class DebtsRepository implements IDebtsRepository {
 
   public async save(debt: Debt): Promise<Debt> {
     return this.ormRepository.save(debt);
+  }
+
+  public async delete(id: string): Promise<void> {
+    await this.ormRepository.delete(id);
   }
 }
 

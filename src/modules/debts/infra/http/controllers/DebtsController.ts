@@ -4,6 +4,7 @@ import { container } from 'tsyringe';
 import CreateDebtService from '@modules/debts/services/CreateDebtService';
 import UpdateDebtService from '@modules/debts/services/UpdateDebtService';
 import SearchDebtsService from '@modules/debts/services/SearchDebtsService';
+import DeleteDebtService from '@modules/debts/services/DeleteDebtService';
 
 export default class DebtsController {
   public async index(req: Request, res: Response): Promise<Response> {
@@ -70,5 +71,15 @@ export default class DebtsController {
     });
 
     return res.json(debt);
+  }
+
+  public async delete(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+
+    const deleteDebt = container.resolve(DeleteDebtService);
+
+    await deleteDebt.execute(id);
+
+    return res.send();
   }
 }

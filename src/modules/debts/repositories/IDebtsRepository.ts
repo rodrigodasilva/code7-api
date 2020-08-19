@@ -8,4 +8,5 @@ export default interface IDebtsRepository {
   findById(id: string): Promise<Debt | undefined>;
   create(data: ICreateDebtDTO): Promise<Debt>;
   save(debt: Debt): Promise<Debt>;
+  delete(id: string): Promise<void>;
 }

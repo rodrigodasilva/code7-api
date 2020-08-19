@@ -48,6 +48,14 @@ class DebtsRepository implements IDebtsRepository {
 
     return debt;
   }
+
+  public async delete(id: string): Promise<void> {
+    const findIndex = this.debts.findIndex(
+      findDebt => String(findDebt.id) === String(id),
+    );
+
+    delete this.debts[findIndex];
+  }
 }
 
 export default DebtsRepository;

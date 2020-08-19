@@ -49,4 +49,6 @@ debtsRouter.put(
   debtsController.update,
 );
 
+debtsRouter.delete('/:id', debtsController.delete);
+
 export default debtsRouter;

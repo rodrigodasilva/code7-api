@@ -31,9 +31,10 @@
 
    > cp ormconfig.example.json ormconfig.json
 
-7. Cria um arquivo '.env' com base no '.env.example' para configuração das variáveis de ambiente.
+7. Crie um arquivo '.env' com base no '.env.example' para configuração das variáveis de ambiente. Substitua as variáveis.
 
    > cp .env.example .env
 
 8. Por fim, inicie a aplicação
+
    > yarn dev:server

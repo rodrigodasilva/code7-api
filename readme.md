@@ -1,26 +1,39 @@
-## Instanciamos os bancos de dados
+## Code 7 - API
 
-- Postgress
+### Pré-requisitos
 
-  > docker run --name logenpenho_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
-  > docker start logenpenho_postgres
+- Docker
+- Npm/Yarn
 
-- MongoDB
+### Como usar
 
-  > docker run --name mongodb -p 27017:27017 -d -t mongo
-  > docker start mongodb
+1. Clone o repositório na sua máquina
 
-- Redis
-  > docker run --name gobarber-redis -p 6379:6379 -d -t redis:alpine
-  > docker start gobarber-redis
+   > git clone https://github.com/rodrigodasilva/code7-api
 
-## Migrations
+2. Acesse a pasta
 
-- Criar migrations
-  > yarn typeorm migration:create -n CreateAppointments
-- Rodar
-  > yarn typeorm migration:run
-- Desfazer
-  > yarn typeorm migration:revert
-- Mostar as migration que já executaram
-  > yarn typeorm migration:show
+   > cd code7-api
+
+3. Instale as dependências
+
+   > yarn
+
+4. Inicie o banco de dados Mongodb utilizando o docker
+
+   > docker run --name code7-mongodb -p 27017:27017 -d -t mongo
+
+5. Inicie o bando de dados Redis utilizando o docker
+
+   > docker run --name code7-redis -p 6379:6379 -d -t redis:alpine
+
+6. Crie um arquivo 'ormconfig.json' com base no 'ormconfig.example.json' para configuração do Mongodb.
+
+   > cp ormconfig.example.json ormconfig.json
+
+7. Cria um arquivo '.env' com base no '.env.example' para configuração das variáveis de ambiente.
+
+   > cp .env.example .env
+
+8. Por fim, inicie a aplicação
+   > yarn dev:server
